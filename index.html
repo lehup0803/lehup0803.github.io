@@ -5,19 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>이은호 포트폴리오 | 시니어 데이터 분석가 / 데이터 엔지니어</title>
 <style>
-  /* ===== 기본 리셋 ===== */
+  /* ===== Reset ===== */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ===== Base ===== */
   body {
     font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
-    background: #f0f7f2;
-    color: #2c3e2d;
+    background: #f0f7f2;   /* page-bg */
+    color: #2c3e2d;        /* ink */
     font-size: 14px;
     line-height: 1.65;
   }
 
-  /* ===== 네비게이션 ===== */
+  /* ===== Navigation ===== */
   nav {
-    background: #1e3a2f;
+    background: #1e3a2f;  /* nav-dark */
     color: #fff;
     padding: 0 32px;
     display: flex;
@@ -33,42 +35,63 @@
     font-weight: 700;
     letter-spacing: 0.03em;
     padding: 14px 0;
-    color: #a8d5b5;
+    color: #a8d5b5;        /* nav-brand-text */
   }
-  .nav-tabs {
-    display: flex;
-    gap: 0;
-  }
+  .nav-tabs { display: flex; gap: 0; }
   .nav-tab {
     padding: 16px 24px;
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
-    color: #c8e6ce;
+    color: #c8e6ce;        /* nav-tab-inactive */
     border-bottom: 3px solid transparent;
     transition: all 0.2s;
   }
   .nav-tab:hover { color: #fff; background: rgba(255,255,255,0.07); }
   .nav-tab.active { color: #fff; border-bottom-color: #52a068; font-weight: 700; }
   .btn-pdf {
-    background: #52a068;
+    background: #52a068;  /* accent */
     color: #fff;
     border: none;
     padding: 8px 18px;
-    border-radius: 6px;
+    border-radius: 6px;   /* rounded.sm */
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s;
   }
-  .btn-pdf:hover { background: #3d7a50; }
+  .btn-pdf:hover { background: #3d7a50; }  /* accent-hover */
 
-  /* ===== 컨텐츠 영역 ===== */
+  /* ===== Container ===== */
   .container { max-width: 960px; margin: 0 auto; padding: 32px 24px 60px; }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
 
-  /* ===== 섹션 ===== */
+  /* ===== Profile Header ===== */
+  .profile-header {
+    background: linear-gradient(135deg, #1e3a2f 0%, #2d5a3d 100%);
+    color: #fff;
+    border-radius: 10px;
+    padding: 36px 40px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .profile-avatar {
+    width: 80px; height: 80px;
+    background: #52a068;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; font-weight: 700; color: #fff;
+    flex-shrink: 0;
+  }
+  .profile-info h1 { font-size: 26px; font-weight: 700; margin-bottom: 4px; }
+  .profile-info .job-title { font-size: 15px; color: #a8d5b5; margin-bottom: 10px; }
+  .profile-meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: #c8e6ce; }
+  .profile-meta span::before { content: "• "; }
+
+  /* ===== Section Card ===== */
   .section {
     background: #fff;
     border-radius: 10px;
@@ -93,38 +116,14 @@
     border-bottom: 1px solid #d4eada;
   }
 
-  /* ===== 프로필 헤더 ===== */
-  .profile-header {
-    background: linear-gradient(135deg, #1e3a2f 0%, #2d5a3d 100%);
-    color: #fff;
-    border-radius: 10px;
-    padding: 36px 40px;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 32px;
-  }
-  .profile-avatar {
-    width: 80px; height: 80px;
-    background: #52a068;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 32px; font-weight: 700; color: #fff;
-    flex-shrink: 0;
-  }
-  .profile-info h1 { font-size: 26px; font-weight: 700; margin-bottom: 4px; }
-  .profile-info .title { font-size: 15px; color: #a8d5b5; margin-bottom: 10px; }
-  .profile-meta { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: #c8e6ce; }
-  .profile-meta span::before { content: "• "; }
-
-  /* ===== 테이블 ===== */
+  /* ===== Table ===== */
   table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
   th { background: #e8f4ec; color: #1e3a2f; font-weight: 700; padding: 9px 12px; text-align: left; border: 1px solid #c8e6ce; }
   td { padding: 9px 12px; border: 1px solid #ddeee2; vertical-align: top; }
   tr:nth-child(even) td { background: #f7fbf8; }
   .info-table td:first-child { font-weight: 600; background: #f0f7f2; width: 130px; color: #2c5c3a; }
 
-  /* ===== 경력 카드 ===== */
+  /* ===== Career Card ===== */
   .career-card {
     border-left: 3px solid #52a068;
     padding: 16px 20px;
@@ -138,20 +137,31 @@
   .career-card ul { padding-left: 18px; }
   .career-card ul li { margin-bottom: 4px; font-size: 13.5px; }
 
-  /* ===== 기술 스택 태그 ===== */
+  /* ===== Tags ===== */
   .tag-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
   .tag {
     background: #e8f4ec;
     color: #2c5c3a;
     border: 1px solid #b8d9c4;
-    border-radius: 20px;
+    border-radius: 9999px;
     padding: 4px 12px;
     font-size: 12.5px;
     font-weight: 500;
   }
   .tag.highlight { background: #52a068; color: #fff; border-color: #52a068; }
 
-  /* ===== 포트폴리오 프로젝트 ===== */
+  /* ===== Competency Grid ===== */
+  .competency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .competency-item {
+    background: #f7fbf8;
+    border: 1px solid #c8e6ce;
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .competency-item .c-title { font-size: 13px; font-weight: 700; color: #1e3a2f; margin-bottom: 6px; }
+  .competency-item .c-body { font-size: 12.5px; color: #4a6b52; line-height: 1.6; }
+
+  /* ===== Project Card ===== */
   .project-card {
     border: 1px solid #c8e6ce;
     border-radius: 10px;
@@ -199,21 +209,24 @@
     padding-bottom: 4px;
     border-bottom: 1px solid #e8f4ec;
   }
-  .result-tag { display: inline-block; background: #52a068; color: #fff; padding: 2px 10px; border-radius: 4px; font-size: 12px; font-weight: 700; margin-left: 6px; }
+  .result-tag {
+    display: inline-block;
+    background: #52a068;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 6px;
+  }
 
-  /* ===== Before/After 테이블 ===== */
+  /* ===== Before/After Table ===== */
   .ba-table th:nth-child(1) { width: 22%; }
   .ba-table th:nth-child(2) { width: 26%; }
   .ba-table th:nth-child(3) { width: 26%; }
   .ba-table th:nth-child(4) { width: 26%; }
 
-  /* ===== 역량 섹션 ===== */
-  .competency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .competency-item { background: #f7fbf8; border: 1px solid #c8e6ce; border-radius: 8px; padding: 14px 16px; }
-  .competency-item .c-title { font-size: 13px; font-weight: 700; color: #1e3a2f; margin-bottom: 6px; }
-  .competency-item .c-body { font-size: 12.5px; color: #4a6b52; line-height: 1.6; }
-
-  /* ===== 포트폴리오 개요 테이블 ===== */
+  /* ===== Domain Badges ===== */
   .overview-badge {
     display: inline-block;
     padding: 2px 10px;
@@ -221,18 +234,18 @@
     font-size: 11.5px;
     font-weight: 600;
   }
-  .badge-dw { background: #dff0e8; color: #1a6635; }
-  .badge-bi { background: #e8f4ff; color: #1a4066; }
+  .badge-dw  { background: #dff0e8; color: #1a6635; }
+  .badge-bi  { background: #e8f4ff; color: #1a4066; }
   .badge-gov { background: #fff3e0; color: #7a4400; }
-  .badge-anal { background: #f3e8ff; color: #5a1a7a; }
-  .badge-ml { background: #ffe8f0; color: #7a1a3a; }
+  .badge-anal{ background: #f3e8ff; color: #5a1a7a; }
+  .badge-ml  { background: #ffe8f0; color: #7a1a3a; }
 
-  /* ===== 자격증 / 학력 ===== */
+  /* ===== Cert List ===== */
   .cert-list { list-style: none; }
   .cert-list li { padding: 6px 0; border-bottom: 1px dashed #d4eada; font-size: 13.5px; }
   .cert-list li:last-child { border-bottom: none; }
 
-  /* ===== 프린트 / A4 ===== */
+  /* ===== Print / A4 ===== */
   @media print {
     nav { display: none !important; }
     body { background: #fff; font-size: 12px; }
@@ -247,7 +260,7 @@
 </head>
 <body>
 
-<!-- 네비게이션 -->
+<!-- Navigation -->
 <nav>
   <div class="nav-brand">이은호 | 시니어 데이터 분석가 / 엔지니어</div>
   <div class="nav-tabs">
@@ -263,12 +276,11 @@
 <!-- ===== TAB 1: 이력서 ===== -->
 <div id="tab-resume" class="tab-content active">
 
-  <!-- 프로필 헤더 -->
   <div class="profile-header">
     <div class="profile-avatar">이</div>
     <div class="profile-info">
       <h1>이은호</h1>
-      <div class="title">시니어 데이터 분석가 / 데이터 엔지니어 (10년차)</div>
+      <div class="job-title">시니어 데이터 분석가 / 데이터 엔지니어 (10년차)</div>
       <div class="profile-meta">
         <span>010-8679-4379</span>
         <span>lehup0803@gmail.com</span>
@@ -277,12 +289,29 @@
     </div>
   </div>
 
-  <!-- 프로필 요약 -->
+  <!-- 기본 정보 -->
+  <div class="section">
+    <div class="section-title">기본 정보</div>
+    <table class="info-table">
+      <tr><td>성명</td><td>이은호</td></tr>
+      <tr><td>생년월일</td><td>1988. 08. 03 (남성)</td></tr>
+      <tr><td>연락처</td><td>010-8679-4379</td></tr>
+      <tr><td>이메일</td><td>lehup0803@gmail.com</td></tr>
+      <tr><td>직무</td><td>시니어 데이터 분석가 / 데이터 엔지니어 (10년차)</td></tr>
+    </table>
+  </div>
+
+  <!-- 프로필 -->
   <div class="section">
     <div class="section-title">프로필</div>
     <p style="font-size:14px; line-height:1.8; margin-bottom:16px;">
       금융(카카오페이증권), 이커머스(쿠팡), 핀테크(삼쩜삼), 게임(넷마블), ICT(SK) 등 다양한 도메인에서 총 <strong>10년차</strong> 데이터 경험을 보유한 전문가입니다.
     </p>
+    <div style="font-size:13.5px; line-height:1.8; margin-bottom:12px;">
+      <strong>보유 도메인:</strong> 금융(증권), 이커머스, 핀테크, 게임, ICT 등 전 산업군 데이터 경험<br>
+      <strong>핵심 강점:</strong> DW/BI 구축, 분석 마트 설계, BI 대시보드 개발, 비즈니스 분석 리포팅, KPI 지표 정의 협의체 운영<br>
+      <strong>리더십·협업:</strong> DI(DW/BI) 파트 10명 리딩, 경영진(C-level) 및 전사 현업 부서 대상 데이터 기반 의사결정 지원
+    </div>
     <div class="tag-group">
       <span class="tag highlight">DW/BI 구축</span>
       <span class="tag highlight">분석 마트 설계</span>
@@ -358,330 +387,306 @@
     </div>
   </div>
 
+  <!-- 주요 업무 경험 및 역량 -->
+  <div class="section">
+    <div class="section-title">주요 업무 경험 및 역량</div>
+    <div class="competency-grid">
+      <div class="competency-item">
+        <div class="c-title">DW/BI 파트 리딩 및 조직 기여</div>
+        <div class="c-body">DI(DW/BI) 파트 10명 리딩 경험. 생성형 AI 활용 업무 자동화로 팀 생산성 개선. 전사 KPI 지표 기준 정의 협의체 운영으로 부서 간 지표 정합성 확보</div>
+      </div>
+      <div class="competency-item">
+        <div class="c-title">다도메인 DW/BI 구축 경험</div>
+        <div class="c-body">금융(증권) DW 환경 구축, Databricks 분석 마트 설계, BigQuery 분석 마트 등 이종 플랫폼에서 DW/BI 풀스택 수행</div>
+      </div>
+      <div class="competency-item">
+        <div class="c-title">비즈니스 분석 리포팅</div>
+        <div class="c-body">경영진(C-level)·마케팅·파이낸스·전략 조직 대상 정기 분석 리포트 제공 및 액션 아이템 도출. 스타트업·중견·대기업 전 규모 경험</div>
+      </div>
+      <div class="competency-item">
+        <div class="c-title">ML 모델 개발 및 세그멘테이션</div>
+        <div class="c-body">K-means + XGBoost 유저 이탈 예측, VOD 콘텐츠 추천 POC, 글로벌 권역별 구매 패턴 분석으로 마케팅 타겟 선정 기여</div>
+      </div>
+      <div class="competency-item">
+        <div class="c-title">BI 대시보드 다툴 경험</div>
+        <div class="c-body">Tableau, Amazon Quicksight, Superset, Looker Studio, MSTR 등 다양한 BI 툴을 활용한 시각화 대시보드 개발 및 운영</div>
+      </div>
+      <div class="competency-item">
+        <div class="c-title">데이터 파이프라인 및 플랫폼</div>
+        <div class="c-body">Dataform 기반 지표 자동화, Airflow/Workflow 배치 파이프라인 구축, Kubernetes CI/CD DevOps 운영 경험</div>
+      </div>
+    </div>
+  </div>
+
   <!-- 기술 스택 -->
   <div class="section">
     <div class="section-title">기술 스택</div>
-    <table class="info-table" style="margin-bottom:0;">
+    <table>
+      <tr><th>분류</th><th>기술</th></tr>
       <tr><td><strong>SQL</strong></td><td>BigQuery, Databricks, Hive, Oracle, MySQL, Impala, Trino, Iceberg</td></tr>
       <tr><td><strong>Python / R</strong></td><td>분석 모델 개발, ML/DL 모델링, 데이터 전처리, 파이프라인 개발</td></tr>
       <tr><td><strong>BI 도구</strong></td><td>Tableau, Amazon Quicksight, Superset, Looker Studio, MSTR</td></tr>
       <tr><td><strong>Cloud</strong></td><td>GCP (BigQuery), AWS, Kubernetes</td></tr>
       <tr><td><strong>분석 도구</strong></td><td>Amplitude, A/B Test 설계, Google Analytics</td></tr>
-      <tr><td><strong>생성형 AI</strong></td><td>Claude (Code, Cowork), M365 Copilot, Cursor, ChatGPT</td></tr>
+      <tr><td><strong>생성형 AI (업무)</strong></td><td>Claude (Code, Cowork), M365 Copilot, Cursor, ChatGPT</td></tr>
       <tr><td><strong>기타</strong></td><td>Git / Jenkins, Jira / Confluence, Elasticsearch, Airbridge(MMP), Dataform</td></tr>
     </table>
   </div>
 
   <!-- 자격증 -->
   <div class="section">
-    <div class="section-title">자격증</div>
+    <div class="section-title">자격증 / 학력</div>
+    <div class="section-subtitle">자격증</div>
     <ul class="cert-list">
-      <li>📋 데이터분석준전문가 (ADSP) — 2019</li>
-      <li>📋 SK 정형 데이터 분석 전문가 Lv3 — 2020</li>
+      <li>데이터분석준전문가(ADSP) — 2019</li>
+      <li>SK 정형 데이터 분석 전문가 Lv3 — 2020</li>
     </ul>
   </div>
-
-</div><!-- /tab-resume -->
-
+</div>
 
 <!-- ===== TAB 2: 기술경력서 ===== -->
 <div id="tab-career" class="tab-content">
 
-  <!-- 기본 정보 -->
-  <div class="section">
-    <div class="section-title">기본 정보</div>
-    <table class="info-table">
-      <tr><td>성명</td><td>이은호</td></tr>
-      <tr><td>생년월일</td><td>1988. 08. 03 (남성)</td></tr>
-      <tr><td>연락처</td><td>010-8679-4379</td></tr>
-      <tr><td>이메일</td><td>lehup0803@gmail.com</td></tr>
-      <tr><td>직무</td><td>시니어 데이터 엔지니어 / 데이터 분석가 (10년차)</td></tr>
-    </table>
+  <div class="profile-header">
+    <div class="profile-avatar">이</div>
+    <div class="profile-info">
+      <h1>이은호</h1>
+      <div class="job-title">시니어 데이터 엔지니어 / 데이터 분석가 (10년차)</div>
+      <div class="profile-meta">
+        <span>010-8679-4379</span>
+        <span>lehup0803@gmail.com</span>
+      </div>
+    </div>
   </div>
 
   <!-- 경력 사항 -->
   <div class="section">
-    <div class="section-title">경력 사항 <small style="font-size:12px;font-weight:400;color:#7aaa8a;">[총 9년 4개월, 인턴 제외]</small></div>
+    <div class="section-title">경력 사항</div>
+    <p style="font-size:13px; color:#7aaa8a; margin-bottom:12px;">총 9년 4개월 (인턴 제외), 10년차</p>
     <table>
-      <thead><tr><th>기간</th><th>회사 / 팀 / 직책</th></tr></thead>
-      <tbody>
-        <tr><td><strong>2025.04 ~ 현재</strong></td><td>카카오페이증권 / 데이터플랫폼팀 / DI(DW/BI) 파트 리더 / Data Engineer</td></tr>
-        <tr><td><strong>2025.02 ~ 2025.04</strong></td><td>쿠팡 / Ads Business Analytics &amp; Insights / Data Analyst</td></tr>
-        <tr><td><strong>2024.02 ~ 2025.02</strong></td><td>자비스앤빌런즈(삼쩜삼) / 전략 BI Chapter / Data Analyst, Data Analytics Engineer</td></tr>
-        <tr><td><strong>2021.06 ~ 2024.02</strong></td><td>넷마블 / 빅데이터실 데이터분석팀 / Data Analyst, Data Analytics Engineer</td></tr>
-        <tr><td><strong>2017.01 ~ 2021.06</strong></td><td>SK주식회사 / ICT Biz. Digital 그룹 / 선임</td></tr>
-        <tr><td style="color:#999;">2016.07 ~ 2016.08</td><td style="color:#999;">SK주식회사 / R&amp;D센터 Data Platform 개발팀 / 인턴</td></tr>
-      </tbody>
+      <tr><th>기간</th><th>회사 / 팀 / 직책</th></tr>
+      <tr><td><strong>2025년 4월 ~ 현재</strong></td><td>카카오페이증권 / 데이터플랫폼팀 / DI(DW/BI) 파트 리더 / Data Engineer</td></tr>
+      <tr><td><strong>2025년 2월 ~ 2025년 4월</strong></td><td>쿠팡 / Ads Business Analytics &amp; Insights / Data Analyst</td></tr>
+      <tr><td><strong>2024년 2월 ~ 2025년 2월</strong></td><td>자비스앤빌런즈(삼쩜삼) / 전략 BI Chapter / Data Analyst, Data Analytics Engineer</td></tr>
+      <tr><td><strong>2021년 6월 ~ 2024년 2월</strong></td><td>넷마블 / 빅데이터실 데이터분석팀 / Data Analyst, Data Analytics Engineer</td></tr>
+      <tr><td><strong>2017년 1월 ~ 2021년 6월</strong></td><td>SK주식회사 / ICT Biz. Digital 그룹 / 선임</td></tr>
+      <tr><td><strong>2016년 7월 ~ 2016년 8월</strong></td><td>SK주식회사 / R&amp;D센터 Data Platform 개발팀 / 인턴</td></tr>
     </table>
-  </div>
-
-  <!-- 주요 업무 경험 -->
-  <div class="section">
-    <div class="section-title">주요 업무 경험 및 역량</div>
-    <ul style="padding-left:18px; line-height:1.9; font-size:13.5px;">
-      <li>DI(DW/BI) 파트 리더로서 10명 규모 조직 리딩, 업무 프로세스 및 데이터 거버넌스 체계 구축 경험</li>
-      <li>전사 및 서비스(상품) 주요 지표 BI 대시보드 TF 리딩, KPI 지표 및 기준 정의 협의체 리딩</li>
-      <li>금융(증권) 도메인에서의 DW 환경 구축 및 운영 경험 (Impala, Trino, Hive, Kudu, Databricks/Iceberg)</li>
-      <li>금융 플랫폼(앱/웹) 서비스 환경에서의 마케팅, 프로덕트 데이터 마트 구축 및 분석 경험</li>
-      <li>이커머스 광고 도메인에서의 비즈니스 분석 및 영업 성과 대시보드 구축 경험</li>
-      <li>경영진 및 실무(제품, 마케팅, 경영관리, 전략) 대상 분석 리포팅 및 액션 아이템 도출 경험</li>
-      <li>고객(유저) 세그멘테이션 정의 및 집중 타겟 그룹 도출 분석 경험</li>
-      <li>국가별 소득/소비수준별 상품(모바일게임) 구매 패턴 분석으로 국가별 상품 마케팅 집중 타겟 선정 경험</li>
-      <li>고객(유저) 이탈 예측 및 VOD 콘텐츠 추천 ML 모델 개발 경험</li>
-      <li>생성형 AI(Claude Code/Cowork, Cursor) 활용 데이터 업무 자동화 에이전트 개발 및 팀 생산성 향상 경험</li>
-      <li>Google Data Studio, Quicksight, Superset, MSTR, Tableau 등 BI Tool 시각화 대시보드 개발 경험</li>
-      <li>BigQuery, Databricks 등 빅데이터 DW/DM 설계 및 Oracle 등 RDB 모델링 경험</li>
-    </ul>
   </div>
 
   <!-- 핵심 역량 -->
   <div class="section">
     <div class="section-title">핵심 역량</div>
-    <div class="competency-grid">
-      <div class="competency-item">
-        <div class="c-title">📊 통계/데이터 분석</div>
-        <div class="c-body">다수 프로젝트 실무를 통한 SQL, Python, R 프로그래밍 및 분석 모델 개발 역량. BI Tool 활용 대시보드, 경영진 및 실무 대상 분석 리포트 제공 경험.</div>
-      </div>
-      <div class="competency-item">
-        <div class="c-title">🏗️ 모델링 역량</div>
-        <div class="c-body">BI 및 분석 모델 활용을 위한 DW 기반 데이터 모델링 수행. 웹 서비스 기획 화면 기반 RDB 모델링 수행 경험.</div>
-      </div>
-      <div class="competency-item">
-        <div class="c-title">🛠️ 다양한 분석 개발 환경</div>
-        <div class="c-body">GCP BigQuery, Databricks 기반 모델 개발. Quicksight, Superset, MSTR, Tableau 대시보드. Amplitude, Salesforce, Airflow 기반 분석 환경.</div>
-      </div>
-      <div class="competency-item">
-        <div class="c-title">📋 기획/보고 역량</div>
-        <div class="c-body">DI파트 리더로서 10명 조직 리딩. 주 1회 이상 경영진 및 실무 대상 정기 분석 리포팅. SK 사내 Agent 업무 수행 및 임원진 대상 보고 경험 다수.</div>
-      </div>
-      <div class="competency-item">
-        <div class="c-title">🤝 커뮤니케이션 역량</div>
-        <div class="c-body">실무진 대상 분석 결과 확인 및 액션 아이템 제안. 고객 분석 과제 수행 및 서비스 제안. 다양한 BP(협력사) 리딩 및 프로젝트 수행 경험.</div>
-      </div>
-      <div class="competency-item">
-        <div class="c-title">🤖 생성형 AI 활용</div>
-        <div class="c-body">Claude Code/Cowork, Cursor 활용 데이터 업무 자동화 에이전트 개발. 채용 문서 관리 시스템 설계 및 구현. M365 Copilot 팀 워크플로우 자동화 추진.</div>
-      </div>
-    </div>
+    <table>
+      <tr><th style="width:20%">역량</th><th>상세 내용</th></tr>
+      <tr>
+        <td><strong>통계/데이터 분석</strong></td>
+        <td>다수 프로젝트 실무 경험을 통한 SQL, Python, R 등 프로그래밍 및 분석 모델 개발 역량 보유<br>BI Tool 활용 대시보드, 경영진 및 실무 대상 분석 리포트 제공 업무 경험 보유</td>
+      </tr>
+      <tr>
+        <td><strong>모델링 역량</strong></td>
+        <td>BI 및 분석 모델 활용을 위한 데이터 모델링 수행 경험 보유 (DW 기반)<br>웹 서비스 기획 화면 기반 데이터 모델링 수행 경험 보유 (RDB 기반)</td>
+      </tr>
+      <tr>
+        <td><strong>다양한 분석 개발 환경</strong></td>
+        <td>GCP BigQuery, Databricks 기반 분석 모델 개발 경험<br>Google Data Studio, Quicksight, Superset, MSTR, Tableau 대시보드 개발 및 리포트 제공 경험<br>이벤트 정의 및 Amplitude 기반 마케팅, 프로덕트 데이터 분석 환경 경험<br>Salesforce 기반 CRM 데이터 분석 및 Airflow 기반 데이터 파이프라인 운영 경험</td>
+      </tr>
+      <tr>
+        <td><strong>기획/보고 역량</strong></td>
+        <td>DI(DW/BI) 파트 리더로서 10명 규모 조직 리딩 및 업무 체계 구축 경험<br>주 1회 이상 경영진 및 실무 대상 정기 분석 리포팅 경험<br>다수 프로젝트를 통한 고객 요건 분석 및 웹 서비스 등 기획 역량 보유</td>
+      </tr>
+      <tr>
+        <td><strong>커뮤니케이션 역량</strong></td>
+        <td>실무진 대상 분석 결과 확인 및 액션 아이템 제안 경험<br>고객 분석 과제 수행 및 서비스 제안 경험<br>다양한 BP(협력사) 리딩 및 프로젝트 수행 경험</td>
+      </tr>
+      <tr>
+        <td><strong>생성형 AI 활용</strong></td>
+        <td>Claude Code/Cowork, Cursor 활용 데이터 업무 자동화 에이전트 개발 경험<br>생성형 AI 기반 채용 문서 관리 시스템(플러그인) 설계 및 구현 경험<br>M365 Copilot, ChatGPT 기반 팀 워크플로우 자동화 추진 경험</td>
+      </tr>
+      <tr>
+        <td><strong>종합 IT 역량</strong></td>
+        <td>통계 언어/분석 역량 뿐 아닌 B/E, F/E 시스템 기획/개발/운영 경험<br>Cloud(IaaS, PaaS) 기반 시스템 개발/운영 경험</td>
+      </tr>
+    </table>
   </div>
 
   <!-- 주요 기술 -->
   <div class="section">
     <div class="section-title">주요 기술</div>
     <table>
-      <thead><tr><th>기술 (숙련도)</th><th>상세 내용</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><strong>SQL (상)</strong></td>
-          <td>차세대 콘텐츠 시스템 DB 마이그레이션 / 외부 연동 API SQL 개발 및 성능 튜닝 / 사업·마케팅·제품·경영관리 요건 분석 및 데이터 마트 구축 / Oracle, MySQL, Hive, BigQuery, Databricks, Impala SQL 개발 경험</td>
-        </tr>
-        <tr>
-          <td><strong>R/Python (중)</strong></td>
-          <td>R 기반 Data 수집·처리·ML 분석 모델 개발 / Python 기반 Data Crawling, 전처리, ML/DL 분석 모델 개발</td>
-        </tr>
-        <tr>
-          <td><strong>생성형 AI</strong></td>
-          <td>Claude (Code, Cowork), Cursor 활용 에이전트 개발 및 업무 생산성 향상 / M365 Copilot, ChatGPT 워크플로우 구축</td>
-        </tr>
-        <tr>
-          <td><strong>기타 (중)</strong></td>
-          <td>Git, Jenkins 외 DevOps Toolchain / Airflow, Salesforce 활용 데이터 파이프라인 및 CRM 분석 / Jira, Confluence, Bitbucket / Linux 기반 서비스 운영 / Spring Boot (Java) / Elasticsearch</td>
-        </tr>
-        <tr>
-          <td><strong>자격증/교육</strong></td>
-          <td>데이터분석준전문가(ADSP) 2019 / SK 정형 데이터 분석 전문가 Lv3 2020 / Data Analysis, ML, DL 교육 다수 수료</td>
-        </tr>
-      </tbody>
+      <tr><th style="width:22%">기술 (숙련도)</th><th>상세 내용</th></tr>
+      <tr>
+        <td><strong>SQL (상)</strong></td>
+        <td>차세대 콘텐츠 시스템 DB 마이그레이션 SQL 개발 경험<br>외부 연동 API 내 시스템 SQL 개발 및 성능 개선 튜닝 경험<br>사업, 마케팅, 제품, 경영관리(재무) 요건 분석 및 데이터 마트 구축, 대시보드 개발 경험<br>Oracle, MySQL 등의 RDB 외 Hive, BigQuery, Databricks, Impala SQL 개발 경험</td>
+      </tr>
+      <tr>
+        <td><strong>R/Python (중)</strong></td>
+        <td>R 기반 Data 수집, 처리, ML 기반 분석 모델 개발 경험<br>Python 기반 Data Crawling, 전처리, ML/DL 기반 분석 모델 개발 경험</td>
+      </tr>
+      <tr>
+        <td><strong>생성형 AI</strong></td>
+        <td>Claude (Code, Cowork), Cursor 활용 에이전트 개발 및 업무 생산성 향상 경험<br>M365 Copilot, ChatGPT 워크플로우 구축 및 업무 생산성 향상 경험</td>
+      </tr>
+      <tr>
+        <td><strong>기타 (중)</strong></td>
+        <td>Git, Jenkins 외 DevOps Toolchain 역량 보유<br>Airflow, Salesforce 활용 데이터 파이프라인 및 CRM 분석 경험 보유<br>협업툴 (Atlassian Jira, Confluence, Bitbucket) 역량 보유<br>Linux 기반 서비스 운영 및 Cloud 기반 개발 경험 보유</td>
+      </tr>
+      <tr>
+        <td><strong>자격증/교육</strong></td>
+        <td>데이터분석준전문가(ADSP) 보유 (2019)<br>SK 정형 데이터 분석 전문가 Lv3 (2020) 외 Data Analysis, ML, DL 교육 다수 수료</td>
+      </tr>
     </table>
   </div>
 
   <!-- 주요 프로젝트 -->
   <div class="section">
-    <div class="section-title">주요 프로젝트 (포트폴리오)</div>
+    <div class="section-title">주요 프로젝트</div>
 
     <div class="section-subtitle">DW 프로젝트</div>
-    <table style="margin-bottom:20px;">
-      <thead><tr><th>항목</th><th>카카오페이증권 전사 DW 환경 구축</th><th>MMORPG 통합 표준 데이터 모델 설계</th></tr></thead>
-      <tbody>
-        <tr><td><strong>기간</strong></td><td>2025.04 ~ 현재</td><td>2022.07 ~ 2023.06</td></tr>
-        <tr><td><strong>구분</strong></td><td>신규 구축 / 고도화 / 차세대 전환</td><td>신규 설계</td></tr>
-        <tr><td><strong>모델링</strong></td><td>Lakehouse (Databricks + Iceberg)</td><td>다차원 모델링 (Star Schema + BigQuery 비정규화)</td></tr>
-        <tr><td><strong>기술 스택</strong></td><td>Impala, Trino, Hive, Kudu, Airflow, Databricks, Iceberg</td><td>BigQuery, Dataform, Airflow, SQL, Python</td></tr>
-        <tr><td><strong>성과</strong></td><td>ETL/마트 파이프라인 안정 운영 체계 확립, 차세대 전환 로드맵 수립</td><td>업무 시간 약 50% 단축, 처리 속도 2배 향상</td></tr>
-      </tbody>
+    <table style="margin-bottom:24px;">
+      <tr><th style="width:22%">항목</th><th>내용</th></tr>
+      <tr><td><strong>프로젝트</strong></td><td>카카오페이증권 전사 DW 환경 구축 및 차세대 전환</td></tr>
+      <tr><td><strong>수행 기간</strong></td><td>2025.04 ~ 현재</td></tr>
+      <tr><td><strong>기술 스택</strong></td><td>Impala, Trino, Hive, Kudu, Airflow, Java, Jenkins, Databricks, Apache Iceberg</td></tr>
+      <tr><td><strong>배경 및 목적</strong></td><td>금융(증권) 도메인 전사 데이터 인프라 안정화 및 Databricks + Apache Iceberg 기반 차세대 Lakehouse 아키텍처 전환을 통한 확장성 확보</td></tr>
+      <tr><td><strong>성과/개선 효과</strong></td><td>ETL/마트 파이프라인 안정적 운영 체계 확립, Databricks/Iceberg 기반 차세대 DW 전환 로드맵 수립 및 추진</td></tr>
+    </table>
+    <table style="margin-bottom:24px;">
+      <tr><th style="width:22%">항목</th><th>내용</th></tr>
+      <tr><td><strong>프로젝트</strong></td><td>MMORPG 게임 업데이트 효과 측정 통합 표준 데이터 모델 설계 (넷마블)</td></tr>
+      <tr><td><strong>수행 기간</strong></td><td>2022.07 ~ 2023.06 (약 1년)</td></tr>
+      <tr><td><strong>기술 스택</strong></td><td>BigQuery, Dataform, Apache Airflow, SQL, Python</td></tr>
+      <tr><td><strong>배경 및 목적</strong></td><td>게임별 파편화된 분석 모델 통합 및 표준화 — 동일 지표 타 게임 적용 시 매번 재구성하던 비효율 해소</td></tr>
+      <tr><td><strong>성과/개선 효과</strong></td><td>업무 시간 약 50% 단축, BigQuery 단일 테이블 연산 구조 도입으로 처리 속도 2배 향상</td></tr>
     </table>
 
     <div class="section-subtitle">BI 프로젝트</div>
-    <table style="margin-bottom:20px;">
-      <thead><tr><th>항목</th><th>전사 KPI 지표 기준 정의 위원회</th><th>전사 주요 조직 KPI 대시보드 구축</th><th>MMORPG 통합 BI 솔루션 도입</th></tr></thead>
-      <tbody>
-        <tr><td><strong>기간</strong></td><td>2025.04 ~ 현재</td><td>2025.12 ~ 2026.04</td><td>2022.07 ~ 2023.06</td></tr>
-        <tr><td><strong>BI 도구</strong></td><td>MSTR, Confluence</td><td>MSTR, Airflow</td><td>Apache Superset, BigQuery</td></tr>
-        <tr><td><strong>성과</strong></td><td>전사 지표 기준 통일, 수치 이의 제기 건수 대폭 감소</td><td>경영진·각 조직 KPI 일별 자동 공유 체계 구축</td><td>매출 증진 성과 달성, 헤비유저 리텐션 트래킹</td></tr>
-      </tbody>
+    <table style="margin-bottom:24px;">
+      <tr><th style="width:22%">항목</th><th>내용</th></tr>
+      <tr><td><strong>프로젝트</strong></td><td>카카오페이증권 전사 KPI 지표 기준 정의 위원회</td></tr>
+      <tr><td><strong>역할</strong></td><td>위원회 리더, 지표 정의서 작성 주도</td></tr>
+      <tr><td><strong>수행 기간</strong></td><td>2025.04 ~ 현재</td></tr>
+      <tr><td><strong>목적</strong></td><td>전사 지표 기준 통일, 표준 지표 정의서 수립, 데이터 리터러시 확대</td></tr>
+      <tr><td><strong>성과</strong></td><td>지표 기준 이의 제기 건수 대폭 감소, 경영회의 데이터 신뢰도 향상</td></tr>
+    </table>
+    <table style="margin-bottom:24px;">
+      <tr><th style="width:22%">항목</th><th>내용</th></tr>
+      <tr><td><strong>프로젝트</strong></td><td>카카오페이증권 전사 주요 조직 KPI 대시보드 구축</td></tr>
+      <tr><td><strong>역할</strong></td><td>TF 리더, 마트 설계/개발, 대시보드 개발</td></tr>
+      <tr><td><strong>수행 기간</strong></td><td>2025.12 ~ 2026.04</td></tr>
+      <tr><td><strong>기술 스택</strong></td><td>MSTR(MicroStrategy), Impala/Hive/Trino (SQL), Airflow, Confluence, Git</td></tr>
+      <tr><td><strong>성과</strong></td><td>경영진 및 각 조직 대상 전사 KPI 현황 일별 공유 환경 구축, 마감 보고 준비 시간 단축</td></tr>
     </table>
 
     <div class="section-subtitle">분석 프로젝트</div>
+    <table style="margin-bottom:24px;">
+      <tr><th style="width:22%">항목</th><th>내용</th></tr>
+      <tr><td><strong>프로젝트</strong></td><td>CRM 발송 피로도 분석 (삼쩜삼)</td></tr>
+      <tr><td><strong>수행 기간</strong></td><td>2024.09 ~ 2024.10</td></tr>
+      <tr><td><strong>분석 도구</strong></td><td>Databricks Notebook (SQL, Python), Google Sheet</td></tr>
+      <tr><td><strong>결과</strong></td><td>가장 탈퇴·차단율이 높은 케이스는 모든 채널에서 30일 이내 1회 수신 케이스 → 가설 기각, 데이터 기반 운영 가이드라인 제안</td></tr>
+    </table>
     <table>
-      <thead><tr><th>항목</th><th>매출 시나리오 분석</th><th>CRM 발송 피로도 분석</th><th>글로벌 게임 상품 판매 전략 분석</th><th>유저 이탈 예측 모델</th></tr></thead>
-      <tbody>
-        <tr><td><strong>기간</strong></td><td>2024.10~2025.01</td><td>2024.09~2024.10</td><td>2023.11</td><td>2021.06~2021.11</td></tr>
-        <tr><td><strong>도구</strong></td><td>Databricks, Google Sheet</td><td>Databricks, Python</td><td>BigQuery, Python</td><td>BigQuery ML, Python</td></tr>
-        <tr><td><strong>결과</strong></td><td>낙관/기준/비관 시나리오 별 매출 시뮬레이션 완료</td><td>가설 기각 → 실제 원인 기반 운영 가이드라인 도출</td><td>가설 수용 → 국가별 마케팅 차별화 제안</td><td>유저 그룹별 이탈 기준 재정의, 예측 스코어 개발</td></tr>
-      </tbody>
+      <tr><th style="width:22%">항목</th><th>내용</th></tr>
+      <tr><td><strong>프로젝트</strong></td><td>MMORPG 게임 유저 이탈 예측 모델 및 지표 개발 (넷마블)</td></tr>
+      <tr><td><strong>수행 기간</strong></td><td>2021.06 ~ 2021.11</td></tr>
+      <tr><td><strong>분석 도구</strong></td><td>BigQuery (SQL), Jupyter Notebook (Python), BigQuery ML, Data Studio</td></tr>
+      <tr><td><strong>결과</strong></td><td>K-means Clustering 기반 유저 그룹별 이탈 기준 재정의, GLM/XGBoost 이탈 예측 스코어 개발 및 모니터링 지표로 활용</td></tr>
     </table>
   </div>
-
-  <!-- 상세 경력 (요약) -->
-  <div class="section">
-    <div class="section-title">상세 경력 사항</div>
-
-    <div class="section-subtitle">카카오페이증권 (2025.04 ~ 현재)</div>
-    <table style="margin-bottom:16px;">
-      <thead><tr><th>수행 업무</th><th>기간</th><th>주요 성과</th></tr></thead>
-      <tbody>
-        <tr><td>전사 주요 조직 KPI 대시보드 구축</td><td>2025.12~2026.04</td><td>지표 표준화, MSTR 기반 구현, 경영진 일별 공유 체계</td></tr>
-        <tr><td>DI 파트 리딩 및 전사 데이터 거버넌스 체계 구축</td><td>2025.04~</td><td>10명 리딩, R&R 정의, 지표 기준 정의 위원회, 거버넌스 체계 도입</td></tr>
-        <tr><td>전사 DW 환경 구축 및 운영</td><td>2025.04~</td><td>ETL/마트 운영, 모니터링 공유 체계, Databricks 차세대 전환 추진</td></tr>
-        <tr><td>전사 BI 대시보드 구축 및 운영</td><td>2025.04~</td><td>MSTR 대시보드 구축, 버전 업그레이드 프로젝트 PM</td></tr>
-      </tbody>
-    </table>
-
-    <div class="section-subtitle">쿠팡 (2025.02 ~ 2025.04)</div>
-    <table style="margin-bottom:16px;">
-      <thead><tr><th>수행 업무</th><th>기간</th><th>주요 성과</th></tr></thead>
-      <tbody>
-        <tr><td>광고 비즈니스 분석 및 대시보드 구축</td><td>2025.02~2025.04</td><td>신규 광고주 타겟팅 분석, Tableau 대시보드, AE 영업 실적 분석</td></tr>
-      </tbody>
-    </table>
-
-    <div class="section-subtitle">자비스앤빌런즈(삼쩜삼) (2024.02 ~ 2025.02)</div>
-    <table style="margin-bottom:16px;">
-      <thead><tr><th>수행 업무</th><th>기간</th><th>주요 성과</th></tr></thead>
-      <tbody>
-        <tr><td>Growth 마케팅 분석</td><td>2024.08~2025.02</td><td>퍼널 분석, CRM 피로도 분석, Amplitude/QuickSight 대시보드</td></tr>
-        <tr><td>경영 관리 데이터 마트/대시보드 구축</td><td>2024.02~2025.02</td><td>Databricks 분석 마트, QuickSight 대시보드, 경영진 정기 리포트</td></tr>
-        <tr><td>프로덕트 통합 마트/대시보드 구축</td><td>2024.02~2025.02</td><td>ODS/Log 기준 프로덕트 통합 마트, 퍼널별 주요 지표 대시보드</td></tr>
-      </tbody>
-    </table>
-
-    <div class="section-subtitle">넷마블 (2021.06 ~ 2024.02)</div>
-    <table style="margin-bottom:16px;">
-      <thead><tr><th>수행 업무</th><th>기간</th><th>주요 성과</th></tr></thead>
-      <tbody>
-        <tr><td>방치형 RPG 게임 런칭 데이터 분석</td><td>2023.07~2024.02</td><td>이상유저 제재 로직 분석, 상품 트래킹, Superset 대시보드</td></tr>
-        <tr><td>MMORPG 업데이트 성과 지표 통합 자동화 구축</td><td>2022.07~2023.06</td><td>BigQuery DM 모델 설계, Dataform 배치 개발, Superset 대시보드</td></tr>
-        <tr><td>MMORPG 정기 업데이트 성과 측정 및 분석</td><td>2021.11~2024.02</td><td>기획/모델링/분석/대시보드/리포트 풀스택 수행</td></tr>
-        <tr><td>유저 이탈 예측 모델 및 지표 개발</td><td>2021.06~2021.11</td><td>K-means + XGBoost/Random Forest 모델, 이탈 스코어 대시보드</td></tr>
-      </tbody>
-    </table>
-
-    <div class="section-subtitle">SK주식회사 (2017.01 ~ 2021.06)</div>
-    <table>
-      <thead><tr><th>수행 업무</th><th>기간</th><th>주요 성과</th></tr></thead>
-      <tbody>
-        <tr><td>신규 미디어 플랫폼 개인화 통계 메뉴 기획 및 DB 모델링</td><td>2021.04~2021.06</td><td>Web 플랫폼 통계 메뉴 화면 기획, MySQL DB 모델링</td></tr>
-        <tr><td>SKB DevOps 데이터 및 시스템 운영</td><td>2020.09~2021.06</td><td>Kubernetes CI/CD, Atlassian Solution 운영</td></tr>
-        <tr><td>SKB 콘텐츠 추천 자동화 POC</td><td>2020.04~2020.09</td><td>Random Forest, LDA, PLSA 기반 추천 모델 개발</td></tr>
-        <tr><td>SKB 콘텐츠 관리 시스템 DB 설계 및 분석</td><td>2018.08~2020.08</td><td>신규 모듈 개발, SQL 튜닝, Elasticsearch 운영</td></tr>
-        <tr><td>차세대 콘텐츠 관리 시스템 데이터 기획 및 DB Migration</td><td>2017.02~2018.08</td><td>Oracle DB Migration, API 개발, 메타데이터 기획</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-</div><!-- /tab-career -->
-
+</div>
 
 <!-- ===== TAB 3: 포트폴리오 ===== -->
 <div id="tab-portfolio" class="tab-content">
 
-  <!-- 개요 -->
+  <!-- 포트폴리오 개요 -->
   <div class="section">
     <div class="section-title">포트폴리오 개요</div>
-    <p style="font-size:13.5px;margin-bottom:16px;color:#4a6b52;">임팩트 높은 대표 프로젝트 6건을 선별하여 정리했습니다. DW 모델링, BI 구축, 데이터 거버넌스, 비즈니스 분석, ML 모델 개발 영역을 포괄합니다.</p>
-    <table>
-      <thead><tr><th style="width:5%">#</th><th>프로젝트명</th><th style="width:14%">유형</th><th style="width:16%">기간</th><th style="width:15%">회사</th></tr></thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>카카오페이증권 전사 DW 환경 구축 및 차세대 전환</td>
-          <td><span class="overview-badge badge-dw">DW 모델링</span></td>
-          <td>2025.04~현재</td>
-          <td>카카오페이증권</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>MMORPG 통합 표준 데이터 모델 설계 및 BI 솔루션 구축</td>
-          <td><span class="overview-badge badge-dw">DW+BI</span></td>
-          <td>2022.07~2023.06</td>
-          <td>넷마블</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>카카오페이증권 전사 주요 조직 KPI 대시보드 구축</td>
-          <td><span class="overview-badge badge-bi">BI</span></td>
-          <td>2025.12~2026.04</td>
-          <td>카카오페이증권</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>카카오페이증권 전사 KPI 지표 기준 정의 위원회</td>
-          <td><span class="overview-badge badge-gov">데이터 거버넌스</span></td>
-          <td>2025.04~현재</td>
-          <td>카카오페이증권</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>삼쩜삼 CRM 발송 피로도 분석</td>
-          <td><span class="overview-badge badge-anal">데이터 분석</span></td>
-          <td>2024.09~2024.10</td>
-          <td>자비스앤빌런즈</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>MMORPG 게임 유저 이탈 예측 모델 개발</td>
-          <td><span class="overview-badge badge-ml">분석/ML</span></td>
-          <td>2021.06~2021.11</td>
-          <td>넷마블</td>
-        </tr>
-      </tbody>
+    <p style="font-size:14px; margin-bottom:16px; color:#2c5c3a;">임팩트 높은 대표 프로젝트 6건을 선별하여 정리했습니다. DW 모델링, BI 구축, 데이터 거버넌스, 비즈니스 분석, ML 모델 개발 영역을 포괄합니다.</p>
+    <table class="overview-table">
+      <tr>
+        <th style="width:5%">번호</th>
+        <th style="width:40%">프로젝트명</th>
+        <th style="width:18%">유형</th>
+        <th style="width:20%">기간</th>
+        <th style="width:17%">회사</th>
+      </tr>
+      <tr>
+        <td style="text-align:center">1</td>
+        <td>카카오페이증권 전사 DW 환경 구축 및 차세대 전환</td>
+        <td><span class="overview-badge badge-dw">DW 모델링</span></td>
+        <td>2025.04~현재</td>
+        <td>카카오페이증권</td>
+      </tr>
+      <tr>
+        <td style="text-align:center">2</td>
+        <td>MMORPG 통합 표준 데이터 모델 설계 및 BI 솔루션 구축</td>
+        <td><span class="overview-badge badge-dw">DW</span> <span class="overview-badge badge-bi">BI</span></td>
+        <td>2022.07~2023.06</td>
+        <td>넷마블</td>
+      </tr>
+      <tr>
+        <td style="text-align:center">3</td>
+        <td>카카오페이증권 전사 주요 조직 KPI 대시보드 구축</td>
+        <td><span class="overview-badge badge-bi">BI</span></td>
+        <td>2025.12~2026.04</td>
+        <td>카카오페이증권</td>
+      </tr>
+      <tr>
+        <td style="text-align:center">4</td>
+        <td>카카오페이증권 전사 KPI 지표 기준 정의 위원회</td>
+        <td><span class="overview-badge badge-gov">데이터 거버넌스</span></td>
+        <td>2025.04~현재</td>
+        <td>카카오페이증권</td>
+      </tr>
+      <tr>
+        <td style="text-align:center">5</td>
+        <td>삼쩜삼 CRM 발송 피로도 분석</td>
+        <td><span class="overview-badge badge-anal">데이터 분석</span></td>
+        <td>2024.09~2024.10</td>
+        <td>자비스앤빌런즈</td>
+      </tr>
+      <tr>
+        <td style="text-align:center">6</td>
+        <td>MMORPG 게임 유저 이탈 예측 모델 개발</td>
+        <td><span class="overview-badge badge-ml">분석/ML</span></td>
+        <td>2021.06~2021.11</td>
+        <td>넷마블</td>
+      </tr>
     </table>
   </div>
 
-  <!-- 프로젝트 1 -->
+  <!-- Project 1 -->
   <div class="project-card">
     <div class="project-header">
       <div class="project-num">1</div>
       <div>
         <div class="project-title">카카오페이증권 전사 DW 환경 구축 및 차세대 전환</div>
-        <div class="project-meta">DW 모델링 · 2025.04 ~ 현재 · 카카오페이증권</div>
+        <div class="project-meta">2025.04 ~ 현재 | 데이터 엔지니어링 / DW 모델링 | 카카오페이증권</div>
       </div>
     </div>
     <div class="project-body">
       <div class="project-summary">금융(증권) 도메인 전사 데이터 인프라 안정화 및 Databricks/Iceberg 기반 차세대 Lakehouse 아키텍처 전환 주도</div>
 
       <div class="project-section-title">배경 및 문제 정의</div>
-      <ul style="padding-left:18px;font-size:13.5px;line-height:1.8;">
-        <li><strong>기존 상황</strong>: 레거시 DW(Impala/Hive/Kudu) 기반 ETL/마트 운영 중, 파이프라인 복잡도 증가로 운영 부담 가중</li>
-        <li><strong>문제점</strong>: 파이프라인 부하 관리 체계 미비, 이상 감지 및 모니터링 체계 부재, 차세대 아키텍처 전환 로드맵 미수립</li>
+      <ul style="padding-left:18px; font-size:13.5px; line-height:1.8;">
+        <li>레거시 DW(Impala/Hive/Kudu) 기반 ETL/마트 운영 중, 파이프라인 복잡도 증가로 운영 부담 가중</li>
+        <li>파이프라인 부하 관리 체계 미비, 이상 감지 및 모니터링 체계 부재</li>
+        <li>차세대 아키텍처 전환 로드맵 미수립 — 금융 도메인 확장성 확보 필요</li>
       </ul>
 
       <div class="project-section-title">사용 기술</div>
       <div class="tag-group">
-        <span class="tag">SQL, Java</span><span class="tag">Apache Airflow, Apache Spark</span>
-        <span class="tag">Impala, Trino, Hive, Kudu</span><span class="tag highlight">Databricks, Apache Iceberg</span>
-        <span class="tag">MSTR(MicroStrategy)</span><span class="tag">Jenkins, Git</span>
+        <span class="tag">Impala / Trino / Hive / Kudu</span>
+        <span class="tag">Databricks</span>
+        <span class="tag">Apache Iceberg</span>
+        <span class="tag">Apache Airflow</span>
+        <span class="tag">Java / Jenkins</span>
+        <span class="tag">MSTR(MicroStrategy)</span>
       </div>
 
-      <div class="project-section-title">수행 내용 (DW 모델링)</div>
-      <ul style="padding-left:18px;font-size:13.5px;line-height:1.8;">
-        <li><strong>모델링 방식</strong>: Lakehouse 아키텍처 (Databricks + Apache Iceberg 기반 Delta Lake) / 레거시: Impala, Hive, Kudu</li>
-        <li><strong>Fact/Dimension 구성</strong>: 금융 도메인 (사업 실적, 공헌이익, 연금/ISA 상품, 전사 주요 KPI)</li>
-        <li><strong>데이터 흐름</strong>: 금융 내부 시스템 → ETL (Java/Jenkins/Airflow) → DW (Impala/Hive/Kudu) → 분석 마트 → BI (MSTR)</li>
-      </ul>
-
-      <div class="project-section-title">핵심 기여</div>
-      <ul style="padding-left:18px;font-size:13.5px;line-height:1.8;">
+      <div class="project-section-title">주요 구현 사항</div>
+      <ul style="padding-left:18px; font-size:13.5px; line-height:1.8;">
         <li>전사 주요 지표 마트 설계 및 구축 (Impala, Trino, Hive, Kudu)</li>
         <li>사업 테이블, 공헌이익, 연금/ISA 도메인 마트 개발</li>
         <li>ETL 신규 개발 및 기존 파이프라인 개선 (Java, Jenkins, Airflow)</li>
@@ -692,160 +697,161 @@
 
       <div class="project-section-title">성과 및 개선 효과</div>
       <table class="ba-table">
-        <thead><tr><th>영역</th><th>Before</th><th>After</th><th>개선 효과</th></tr></thead>
-        <tbody>
-          <tr><td>파이프라인 이상 감지</td><td>장애 발생 후 사용자 인지로 대응 지연</td><td>데일리 모니터링 + 알람 체계 구축</td><td><strong>즉시 감지 및 선제 대응 가능</strong></td></tr>
-          <tr><td>차세대 전환</td><td>레거시 DW 전환 로드맵 없음</td><td>Databricks/Iceberg 기반 로드맵 수립</td><td><strong>처리 성능 및 비용 효율화 기반 마련</strong></td></tr>
-        </tbody>
+        <tr><th>영역</th><th>Before</th><th>After</th><th>개선 효과</th></tr>
+        <tr>
+          <td>파이프라인 이상 감지</td>
+          <td>장애 발생 후 사용자 인지로 대응 지연</td>
+          <td>데일리 모니터링 + 알람 체계 구축</td>
+          <td><strong>즉시 감지 및 선제 대응 가능</strong></td>
+        </tr>
+        <tr>
+          <td>차세대 전환</td>
+          <td>레거시 DW 전환 로드맵 없음</td>
+          <td>Databricks/Iceberg 기반 로드맵 수립</td>
+          <td><strong>처리 성능 및 비용 효율화 기반 마련</strong></td>
+        </tr>
       </table>
-
-      <div class="project-section-title">문제 및 해결</div>
-      <table>
-        <thead><tr><th>문제</th><th>원인</th><th>해결 방법</th></tr></thead>
-        <tbody>
-          <tr><td>레거시 운영과 차세대 전환 병행 시 운영 부담 과중</td><td>레거시/신규 환경 동시 운영 필요</td><td>단계적 전환 로드맵 수립, 레거시/신규 병행 운영 체계 구축</td></tr>
-        </tbody>
-      </table>
-
-      <div class="project-section-title">배운 점 / 회고</div>
-      <p style="font-size:13.5px;line-height:1.8;">금융 도메인 DW는 정합성·안정성 요구 수준이 타 도메인 대비 높음. 레거시 병행 운영 중 점진적 마이그레이션은 단계별 검증 체계가 필수적임을 확인.</p>
     </div>
   </div>
 
-  <!-- 프로젝트 2 -->
+  <!-- Project 2 -->
   <div class="project-card">
     <div class="project-header">
       <div class="project-num">2</div>
       <div>
         <div class="project-title">MMORPG 통합 표준 데이터 모델 설계 및 BI 솔루션 구축</div>
-        <div class="project-meta">DW 모델링 + BI · 2022.07 ~ 2023.06 (약 1년) · 넷마블</div>
+        <div class="project-meta">2022.07 ~ 2023.06 (약 1년) | DW 모델링 / BI | 넷마블</div>
       </div>
     </div>
     <div class="project-body">
       <div class="project-summary">게임별 파편화된 분석 모델을 Star Schema 기반 통합 표준 모델로 전환, 오픈소스 BI 도입으로 업무 50% 단축 및 비용 절감 달성</div>
 
       <div class="project-section-title">배경 및 문제 정의</div>
-      <ul style="padding-left:18px;font-size:13.5px;line-height:1.8;">
-        <li><strong>기존 상황</strong>: 게임별 분석가가 각자 대시보드·리포트용 데이터 모델을 별도 구성, 유료 BI 솔루션 사용</li>
-        <li><strong>문제점</strong>: 동일 분석 지표를 타 게임에 적용 시 스키마 불일치로 매번 별도 구성 필요 → 과도한 공수 발생, 업무 공백 시 백업 불가</li>
+      <ul style="padding-left:18px; font-size:13.5px; line-height:1.8;">
+        <li>게임별 분석가가 각자 대시보드·리포트용 데이터 모델을 별도 구성, 유료 BI 솔루션 사용</li>
+        <li>동일 분석 지표를 타 게임에 적용 시 스키마 불일치로 매번 별도 구성 필요 → 과도한 공수 발생</li>
+        <li>업무 공백 시 파편화된 스키마로 인해 타 구성원 백업 불가</li>
       </ul>
 
       <div class="project-section-title">사용 기술</div>
       <div class="tag-group">
-        <span class="tag">SQL, Python, Java, JavaScript</span>
-        <span class="tag">Apache Airflow, Dataform</span>
-        <span class="tag highlight">BigQuery, Cloud SQL (PostgreSQL)</span>
-        <span class="tag highlight">Apache Superset (오픈소스)</span>
-        <span class="tag">GCP</span>
+        <span class="tag">BigQuery</span>
+        <span class="tag">Dataform</span>
+        <span class="tag">Apache Airflow</span>
+        <span class="tag">Apache Superset</span>
+        <span class="tag">Cloud SQL (PostgreSQL)</span>
+        <span class="tag">SQL / Python / Java / JavaScript</span>
       </div>
 
-      <div class="project-section-title">수행 내용</div>
-      <ul style="padding-left:18px;font-size:13.5px;line-height:1.8;">
-        <li><strong>모델링 방식</strong>: 다차원 모델링 (Star Schema 기반), BigQuery 최적화 단일 테이블 연산 중심 비정규화 구조</li>
-        <li><strong>Fact/Dimension</strong>: 게임 공통 영역 (DAU, 매출, 리텐션) + 게임별 콘텐츠/상품/아이템/이벤트 영역</li>
-        <li><strong>BI 핵심 KPI</strong>: DAU (일간 활성 사용자), 리텐션 (일/주/월), 상품 매출, 콘텐츠 이용률</li>
-        <li><strong>대시보드 구성</strong>: 게임 7종, 대시보드당 20개 이상 차트, 일별 갱신</li>
-      </ul>
-
-      <div class="project-section-title">핵심 기여</div>
-      <ul style="padding-left:18px;font-size:13.5px;line-height:1.8;">
+      <div class="project-section-title">주요 구현 사항</div>
+      <ul style="padding-left:18px; font-size:13.5px; line-height:1.8;">
         <li>전 게임 공통 사용 영역 정의 및 표준 스키마 설계 (가변 속성 코드화)</li>
         <li>BigQuery 최적화 단일 테이블 연산 중심 모델 구조 정의</li>
         <li>Dataform &amp; Airflow 파이프라인 retry 정책 적용, 모니터링 알람 도입</li>
-        <li>코드 관리 운영 UI 구현 (스키마 변경 이력 및 코드 표준 관리)</li>
         <li>검증/상용 서버 간 단일 Cloud SQL 공유 아키텍처 설계 및 구현</li>
         <li>MMORPG 7개 게임 대시보드 구현 (대시보드당 20개+ 차트)</li>
       </ul>
 
       <div class="project-section-title">성과 및 개선 효과</div>
       <table class="ba-table">
-        <thead><tr><th>영역</th><th>Before</th><th>After</th><th>개선 효과</th></tr></thead>
-        <tbody>
-          <tr><td>업무 시간</td><td>신규 게임/기능마다 별도 스키마 구성</td><td>표준 모델 기반 소스 재활용</td><td><strong>약 50% 단축</strong></td></tr>
-          <tr><td>데이터 처리 속도</td><td>다중 테이블 조인 연산</td><td>BigQuery 단일 테이블 연산</td><td><strong>처리 속도 2배 향상</strong></td></tr>
-          <tr><td>BI 운영 비용</td><td>유료 BI 솔루션 라이선스</td><td>Apache Superset 오픈소스 전환</td><td><strong>라이선스 비용 절감</strong></td></tr>
-          <tr><td>협업 구조</td><td>업무 공백 시 백업 불가</td><td>표준 모델 기반 공통 환경 구축</td><td>관리 포인트 감소, 상호 백업 가능</td></tr>
-        </tbody>
-      </table>
-
-      <div class="project-section-title">문제 및 해결</div>
-      <table>
-        <thead><tr><th>문제</th><th>원인</th><th>해결 방법</th></tr></thead>
-        <tbody>
-          <tr><td>게임별 콘텐츠 구조 상이로 단일 공통 모델 추상화 어려움</td><td>게임마다 상품/이벤트/아이템 스키마 다름</td><td>핵심 공통 속성 도출 후 가변 속성 코드화로 확장 가능한 구조 설계</td></tr>
-          <tr><td>개발팀(검증/상용 분리) vs 분석팀(단일 상용 환경) 의견 충돌</td><td>운영 방식 이해관계 상충</td><td>검증 서버 구축 + 단일 Cloud SQL 공유 아키텍처 도입으로 양측 요구 동시 충족</td></tr>
-        </tbody>
+        <tr><th>영역</th><th>Before</th><th>After</th><th>개선 효과</th></tr>
+        <tr>
+          <td>업무 시간</td>
+          <td>신규 게임/기능마다 별도 스키마 구성</td>
+          <td>표준 모델 기반 소스 재활용</td>
+          <td><strong>약 50% 단축</strong><span class="result-tag">달성</span></td>
+        </tr>
+        <tr>
+          <td>데이터 처리 속도</td>
+          <td>다중 테이블 조인 연산</td>
+          <td>BigQuery 단일 테이블 연산</td>
+          <td><strong>처리 속도 2배 향상</strong><span class="result-tag">달성</span></td>
+        </tr>
+        <tr>
+          <td>BI 운영 비용</td>
+          <td>유료 BI 솔루션 라이선스</td>
+          <td>Apache Superset 오픈소스 전환</td>
+          <td>라이선스 비용 절감</td>
+        </tr>
       </table>
     </div>
   </div>
 
-  <!-- 프로젝트 3 -->
+  <!-- Project 3 -->
   <div class="project-card">
     <div class="project-header">
       <div class="project-num">3</div>
       <div>
         <div class="project-title">카카오페이증권 전사 주요 조직 KPI 대시보드 구축</div>
-        <div class="project-meta">BI · 2025.12 ~ 2026.04 · 카카오페이증권</div>
+        <div class="project-meta">2025.12 ~ 2026.04 | BI | 카카오페이증권</div>
       </div>
     </div>
     <div class="project-body">
       <div class="project-summary">전사 수준 KPI 현황을 경영진·각 조직에 매일 공유하는 통합 대시보드 구축 — 표준 지표 기준 적용으로 데이터 신뢰도 확보</div>
 
       <div class="project-section-title">배경 및 문제 정의</div>
-      <ul style="padding-left:18px;font-size:13.5px;line-height:1.8;">
-        <li><strong>Before</strong>: 전사 수준 도메인별 KPI 대시보드 부재, 부서별 혼재된 지표 기준 사용</li>
-        <li><strong>Problem</strong>: 경영회의 시 부서마다 다른 수치 제시로 신뢰도 논란, 마감 보고 준비 시간 과다 소요</li>
+      <ul style="padding-left:18px; font-size:13.5px; line-height:1.8;">
+        <li>전사 수준 도메인별 KPI 대시보드 부재, 부서별 혼재된 지표 기준 사용</li>
+        <li>경영회의 시 부서마다 다른 수치 제시로 신뢰도 논란 발생</li>
+        <li>마감 보고 준비 시간 과다 소요</li>
       </ul>
 
       <div class="project-section-title">사용 기술</div>
       <div class="tag-group">
-        <span class="tag">SQL</span><span class="tag">Apache Airflow</span>
-        <span class="tag">Impala, Hive, Trino</span>
-        <span class="tag highlight">MSTR (MicroStrategy)</span>
-        <span class="tag">Confluence (지표 정의서), Git</span>
+        <span class="tag">MSTR(MicroStrategy)</span>
+        <span class="tag">Impala / Hive / Trino</span>
+        <span class="tag">Apache Airflow</span>
+        <span class="tag">Confluence</span>
+        <span class="tag">SQL</span>
       </div>
 
-      <div class="project-section-title">핵심 KPI 및 대시보드 구성</div>
-      <ul style="padding-left:18px;font-size:13.5px;line-height:1.8;">
-        <li><strong>핵심 KPI</strong>: 서비스별 고객 현황 (신규/활성/이탈), 금융상품 (연금/ISA) 가입/잔고, 수익/공헌이익, 마케팅 성과</li>
-        <li><strong>대시보드 구성</strong>: 경영 요약 / 서비스별 KPI 드릴다운 / 마케팅·고객 현황</li>
-        <li><strong>차트 유형</strong>: Gauge/Bullet Chart (달성률), Line+Bar 혼합 (추이), Funnel Chart (고객 현황)</li>
-        <li><strong>갱신 주기</strong>: 매일 오전 자동 갱신 (전일 기준)</li>
+      <div class="project-section-title">대시보드 구성</div>
+      <ul style="padding-left:18px; font-size:13.5px; line-height:1.8;">
+        <li>경영 요약 / 서비스별 KPI 드릴다운 / 마케팅·고객 현황</li>
+        <li>달성률: Gauge/Bullet Chart, 추이: Line + Bar 혼합, 고객 현황: Funnel Chart</li>
+        <li>매일 오전 자동 갱신 (전일 기준)</li>
       </ul>
 
       <div class="project-section-title">성과 및 개선 효과</div>
       <table class="ba-table">
-        <thead><tr><th>영역</th><th>Before</th><th>After</th><th>개선 효과</th></tr></thead>
-        <tbody>
-          <tr><td>전사 KPI 현황 파악</td><td>전사 수준 KPI 대시보드 없음</td><td>경영진·각 조직 일별 자동 공유</td><td><strong>KPI 현황 실시간 가시성 확보</strong></td></tr>
-          <tr><td>경영회의 준비</td><td>부서별 자료 수동 취합, 시간 소요</td><td>대시보드에서 직접 수치 확인</td><td><strong>마감 보고 준비 시간 단축</strong></td></tr>
-          <tr><td>데이터 신뢰도</td><td>부서별 상이한 지표 기준 사용</td><td>표준 지표 기준 적용</td><td><strong>이후 수치 이의 제기 없이 안정적 운영</strong></td></tr>
-        </tbody>
+        <tr><th>영역</th><th>Before</th><th>After</th><th>개선 효과</th></tr>
+        <tr>
+          <td>전사 KPI 현황</td>
+          <td>전사 수준 KPI 대시보드 없음</td>
+          <td>경영진·각 조직 일별 자동 공유</td>
+          <td><strong>KPI 현황 실시간 가시성 확보</strong></td>
+        </tr>
+        <tr>
+          <td>데이터 신뢰도</td>
+          <td>부서별 상이한 지표 기준</td>
+          <td>표준 지표 기준 적용</td>
+          <td><strong>이후 수치 이의 제기 없이 안정적 운영</strong></td>
+        </tr>
       </table>
     </div>
   </div>
 
-  <!-- 프로젝트 4 -->
+  <!-- Project 4 -->
   <div class="project-card">
     <div class="project-header">
       <div class="project-num">4</div>
       <div>
         <div class="project-title">카카오페이증권 전사 KPI 지표 기준 정의 위원회</div>
-        <div class="project-meta">데이터 거버넌스 · 2025.04 ~ 현재 · 카카오페이증권</div>
+        <div class="project-meta">2025.04 ~ 현재 | 전사 데이터 거버넌스 체계 구축 | 카카오페이증권</div>
       </div>
     </div>
     <div class="project-body">
       <div class="project-summary">부서별 상이한 지표 기준을 전사 표준으로 통일하는 위원회 운영 — 경영회의 수치 불일치 문제 근본 해결</div>
 
       <div class="project-section-title">배경 및 문제 정의</div>
-      <ul style="padding-left:18px;font-size:13.5px;line-height:1.8;">
-        <li><strong>Before</strong>: 부서별 상이한 지표 산출 기준으로 경영회의 시 동일 지표에 대한 복수 버전 수치 제시</li>
-        <li><strong>Problem</strong>: 의사결정 신뢰도 저하, 데이터 리터러시 부재, 수치 논란으로 경영회의 효율 저하</li>
-        <li><strong>Goal</strong>: 전사 지표 기준 통일, 표준 지표 정의서 수립, 데이터 리터러시 확대</li>
+      <ul style="padding-left:18px; font-size:13.5px; line-height:1.8;">
+        <li>부서별 상이한 지표 산출 기준으로 경영회의 시 동일 지표에 대한 복수 버전 수치 제시</li>
+        <li>의사결정 신뢰도 저하, 데이터 리터러시 부재</li>
+        <li>수치 논란으로 경영회의 효율 저하</li>
       </ul>
 
-      <div class="project-section-title">핵심 기여</div>
-      <ul style="padding-left:18px;font-size:13.5px;line-height:1.8;">
+      <div class="project-section-title">주요 구현 사항</div>
+      <ul style="padding-left:18px; font-size:13.5px; line-height:1.8;">
         <li>위원회 공식화 및 이해관계자 합의 프로세스 도입</li>
         <li>전사 표준 지표 정의서 작성 및 배포 (지표 용어 표준화 가이드 포함)</li>
         <li>부서 협의체 운영 및 지표 기준 합의 주도</li>
@@ -854,45 +860,50 @@
 
       <div class="project-section-title">성과 및 개선 효과</div>
       <table class="ba-table">
-        <thead><tr><th>영역</th><th>Before</th><th>After</th><th>개선 효과</th></tr></thead>
-        <tbody>
-          <tr><td>경영회의 수치 신뢰도</td><td>부서별 상이한 수치, 이의 제기 빈번</td><td>전사 표준 지표 기준 통일</td><td><strong>이후 수치 이의 제기 없이 안정적 운영</strong></td></tr>
-          <tr><td>데이터 리터러시</td><td>지표 기준 부재, 부서별 임의 산출</td><td>표준 지표 정의서 배포 및 용어 가이드</td><td><strong>전사 데이터 리터러시 확대 기반 마련</strong></td></tr>
-        </tbody>
+        <tr><th>영역</th><th>Before</th><th>After</th><th>개선 효과</th></tr>
+        <tr>
+          <td>경영회의 수치 신뢰도</td>
+          <td>부서별 상이한 수치, 이의 제기 빈번</td>
+          <td>전사 표준 지표 기준 통일</td>
+          <td><strong>이후 수치 이의 제기 없이 안정적 운영</strong><span class="result-tag">달성</span></td>
+        </tr>
+        <tr>
+          <td>데이터 리터러시</td>
+          <td>지표 기준 부재, 부서별 임의 산출</td>
+          <td>표준 지표 정의서 배포 및 용어 가이드</td>
+          <td>전사 데이터 리터러시 확대 기반 마련</td>
+        </tr>
       </table>
-
-      <div class="project-section-title">배운 점</div>
-      <p style="font-size:13.5px;line-height:1.8;">데이터 거버넌스는 기술 문제가 아닌 조직 문제 — 합의 프로세스 설계가 핵심. 위원회 공식화 및 승인 체계를 통해 지속 가능한 거버넌스 구조 수립 가능함을 확인.</p>
     </div>
   </div>
 
-  <!-- 프로젝트 5 -->
+  <!-- Project 5 -->
   <div class="project-card">
     <div class="project-header">
       <div class="project-num">5</div>
       <div>
         <div class="project-title">삼쩜삼 CRM 발송 피로도 분석</div>
-        <div class="project-meta">데이터 분석 · 2024.09 ~ 2024.10 · 자비스앤빌런즈</div>
+        <div class="project-meta">2024.09 ~ 2024.10 | 데이터 분석 | 자비스앤빌런즈(삼쩜삼)</div>
       </div>
     </div>
     <div class="project-body">
       <div class="project-summary">CRM 과발송으로 인한 탈퇴·차단율 증가 가설 검증 — 가설 기각 후 실제 원인 기반 운영 개선 방향 제시</div>
 
       <div class="project-section-title">배경 및 문제 정의</div>
-      <ul style="padding-left:18px;font-size:13.5px;line-height:1.8;">
-        <li><strong>기존 상황</strong>: 잦은 CRM(푸시, 카카오톡) 발송으로 인한 유저 탈퇴 및 차단율 증가 의견이 고객 설문으로 확인됨</li>
-        <li><strong>가설</strong>: 일정 기간 내 메시지 발송량이 많을수록 유저 탈퇴·차단율이 높을 것</li>
+      <ul style="padding-left:18px; font-size:13.5px; line-height:1.8;">
+        <li>잦은 CRM(푸시, 카카오톡) 발송으로 인한 유저 탈퇴 및 차단율 증가 의견(고객 설문) 확인</li>
+        <li>직관적 가설("많이 보낼수록 탈퇴·차단 증가") 기반으로 운영 중, 실제 데이터 검증 미완료</li>
       </ul>
 
       <div class="project-section-title">사용 기술</div>
       <div class="tag-group">
-        <span class="tag">SQL, Python</span>
-        <span class="tag highlight">Databricks Notebook</span>
-        <span class="tag">Google Sheet (공유)</span>
+        <span class="tag">Databricks Notebook</span>
+        <span class="tag">SQL / Python</span>
+        <span class="tag">Google Sheet</span>
       </div>
 
-      <div class="project-section-title">분석 방법</div>
-      <ul style="padding-left:18px;font-size:13.5px;line-height:1.8;">
+      <div class="project-section-title">분석 과정</div>
+      <ul style="padding-left:18px; font-size:13.5px; line-height:1.8;">
         <li>채널별 전체 유저 기준 차단·탈퇴 유저의 메시지 수신 기간/발송량/빈도 분석</li>
         <li>세그먼트별, 메시지 유형(목표)별 분석 병행</li>
         <li>차단·탈퇴 유저 vs 일반 유저의 수신 패턴 비교 분석</li>
@@ -900,81 +911,78 @@
 
       <div class="project-section-title">성과 및 개선 효과</div>
       <table class="ba-table">
-        <thead><tr><th>영역</th><th>Before</th><th>After</th><th>개선 효과</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>분석 인사이트</td>
-            <td>"많이 보낼수록 탈퇴" 가설 전제</td>
-            <td>1회 수신 후 탈퇴 케이스가 가장 높음 확인</td>
-            <td><strong>가설 기각</strong> — 실제 원인 규명, 잘못된 방향의 개선 방지</td>
-          </tr>
-          <tr>
-            <td>CRM 운영 기준</td>
-            <td>직관 기반 발송 빈도 관리</td>
-            <td>데이터 기반 임계치 및 운영 가이드라인 제시</td>
-            <td><strong>근거 기반 운영 의사결정 가능</strong></td>
-          </tr>
-        </tbody>
+        <tr><th>영역</th><th>Before</th><th>After</th><th>개선 효과</th></tr>
+        <tr>
+          <td>분석 인사이트</td>
+          <td>"많이 보낼수록 탈퇴" 가설 전제</td>
+          <td>1회 수신 후 탈퇴 케이스가 가장 높음 확인 → <strong>가설 기각</strong></td>
+          <td>실제 원인 규명, 잘못된 방향의 개선 방지</td>
+        </tr>
+        <tr>
+          <td>CRM 운영 기준</td>
+          <td>직관 기반 발송 빈도 관리</td>
+          <td>데이터 기반 임계치 및 운영 가이드라인 제시</td>
+          <td>근거 기반 운영 의사결정 가능</td>
+        </tr>
       </table>
-
-      <div class="project-section-title">배운 점</div>
-      <p style="font-size:13.5px;line-height:1.8;">직관적 가설이 데이터 분석으로 기각되는 대표 사례 — 가설 검증의 중요성 체감. 가설 기각 후에도 유의미한 액션 아이템 도출을 위해 추가 분석 방향을 사전에 설계해두는 것이 효율적.</p>
     </div>
   </div>
 
-  <!-- 프로젝트 6 -->
+  <!-- Project 6 -->
   <div class="project-card">
     <div class="project-header">
       <div class="project-num">6</div>
       <div>
         <div class="project-title">MMORPG 게임 유저 이탈 예측 모델 개발</div>
-        <div class="project-meta">데이터 분석 / ML · 2021.06 ~ 2021.11 · 넷마블</div>
+        <div class="project-meta">2021.06 ~ 2021.11 | 데이터 분석 / ML | 넷마블</div>
       </div>
     </div>
     <div class="project-body">
       <div class="project-summary">기존 획일적 이탈 기준을 유저 그룹별로 재정의하고 ML 기반 이탈 예측 스코어 지표 개발 — 업데이트 후 모니터링 지표로 활용</div>
 
       <div class="project-section-title">배경 및 문제 정의</div>
-      <ul style="padding-left:18px;font-size:13.5px;line-height:1.8;">
-        <li><strong>기존 상황</strong>: 회사 내 게임 장르 구분 없이 공통 이탈 기준 적용 중</li>
-        <li><strong>가설</strong>: 과금 여부 및 주요 게임 요소에 따라 이탈로 정의할 수 있는 기간이 다를 것</li>
+      <ul style="padding-left:18px; font-size:13.5px; line-height:1.8;">
+        <li>회사 내 게임 장르 구분 없이 공통 이탈 기준 적용 중</li>
+        <li>공통 기준이 MMORPG 장르 특성 및 유저 특성(과금/무과금)을 반영하지 못해 이탈 감지 정확도 낮음</li>
       </ul>
 
       <div class="project-section-title">사용 기술</div>
       <div class="tag-group">
-        <span class="tag">SQL, Python</span>
-        <span class="tag highlight">BigQuery, BigQuery ML</span>
-        <span class="tag highlight">K-means, GLM, XGBoost, Random Forest</span>
+        <span class="tag">BigQuery</span>
+        <span class="tag">BigQuery ML</span>
+        <span class="tag">Python (K-means, GLM, XGBoost, Random Forest)</span>
         <span class="tag">Jupyter Notebook</span>
         <span class="tag">Google Data Studio</span>
       </div>
 
       <div class="project-section-title">분석 방법</div>
-      <ul style="padding-left:18px;font-size:13.5px;line-height:1.8;">
-        <li>K-means Clustering 활용 전체 유저 대상 신규 그룹 정의</li>
-        <li>유저 그룹별 Moving Average 활용 신규 이탈 구간 및 기준 정의</li>
-        <li>GLM, XGBoost, Random Forest 활용 이탈 예측 모델 개발 및 비교</li>
-        <li>Data Studio 활용 이탈 예측 스코어 + 인게임 분석 지표 대시보드 구축</li>
+      <ul style="padding-left:18px; font-size:13.5px; line-height:1.8;">
+        <li>K-means Clustering → 유저 그룹별 Moving Average 기반 이탈 구간 정의</li>
+        <li>GLM / XGBoost / Random Forest 이탈 예측 모델 개발 및 비교</li>
+        <li>일 배치 이탈 예측 스코어 대시보드 구축 (Data Studio)</li>
       </ul>
 
       <div class="project-section-title">성과 및 개선 효과</div>
       <table class="ba-table">
-        <thead><tr><th>영역</th><th>Before</th><th>After</th><th>개선 효과</th></tr></thead>
-        <tbody>
-          <tr><td>이탈 기준</td><td>장르·유저 특성 무관한 단일 기준</td><td>유저 그룹별 차별화된 이탈 구간 정의</td><td><strong>이탈 감지 정확도 향상</strong></td></tr>
-          <tr><td>이탈 감지 방식</td><td>사후 이탈 확인</td><td>개인별 이탈 예측 스코어 일 배치 제공</td><td><strong>사전 감지 및 업데이트 후 모니터링 지표로 활용</strong></td></tr>
-          <tr><td>가설 검증</td><td>"이탈 기준 유저 그룹별 동일" 가정</td><td>과금/무과금 이탈 기간 차이 확인</td><td><strong>가설 수용, 신규 기준 근거 확보</strong></td></tr>
-        </tbody>
+        <tr><th>영역</th><th>Before</th><th>After</th><th>개선 효과</th></tr>
+        <tr>
+          <td>이탈 기준</td>
+          <td>장르·유저 특성 무관한 단일 기준</td>
+          <td>유저 그룹별 차별화된 이탈 구간 정의</td>
+          <td><strong>이탈 감지 정확도 향상</strong><span class="result-tag">달성</span></td>
+        </tr>
+        <tr>
+          <td>이탈 감지 방식</td>
+          <td>사후 이탈 확인</td>
+          <td>개인별 이탈 예측 스코어 일 배치 제공</td>
+          <td><strong>사전 감지 및 업데이트 후 모니터링 지표로 활용</strong></td>
+        </tr>
       </table>
-
-      <div class="project-section-title">배운 점</div>
-      <p style="font-size:13.5px;line-height:1.8;">비즈니스 정의(이탈 기준)를 데이터로 재정의하는 과정이 모델 품질보다 더 중요한 경우가 많음. K-means → 기준 정의 → 예측 모델 순서의 단계별 접근이 비즈니스 설득력 높은 결과물 산출에 효과적.</p>
     </div>
   </div>
 
-</div><!-- /tab-portfolio -->
-
-</div><!-- /container -->
+</div><!-- end portfolio tab -->
+</div><!-- end container -->
 
 <script>
 function switchTab(tabName, el) {
@@ -984,6 +992,5 @@ function switchTab(tabName, el) {
   el.classList.add('active');
 }
 </script>
-
 </body>
 </html>
