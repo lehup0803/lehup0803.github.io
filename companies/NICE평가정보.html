@@ -254,9 +254,9 @@ tr:nth-child(even) td{background:#f5f7fc}
 
 <!-- ==================== 프로필 헤더 ==================== -->
 <div class="profile-header">
-  <div class="profile-avatar">이</div>
+  <div class="profile-avatar">EH</div>
   <div class="profile-info">
-    <h1>이은호</h1>
+    <h1 id="profile-title">이력서 | 이은호</h1>
     <div class="title">Data Analyst / Data Engineer · 10년차 | 데이터서비스 운영담당자 지원</div>
     <div class="meta">010-8679-4379 · lehup0803@gmail.com</div>
   </div>
@@ -988,6 +988,7 @@ tr:nth-child(even) td{background:#f5f7fc}
 </div><!-- /page-layout -->
 
 <script>
+var tabLabels = { resume: '이력서', career: '경력기술서', portfolio: '포트폴리오' };
 function switchTab(tab, btn) {
   document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
@@ -996,6 +997,8 @@ function switchTab(tab, btn) {
   btn.classList.add('active');
   var sideNav = document.getElementById('side-nav-' + tab);
   if (sideNav) sideNav.classList.add('visible');
+  var titleEl = document.getElementById('profile-title');
+  if (titleEl) titleEl.textContent = (tabLabels[tab] || tab) + ' | 이은호';
 }
 
 // 사이드바 스크롤 연동
