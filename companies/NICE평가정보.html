@@ -105,12 +105,6 @@ tr:nth-child(even) td{background:#f5f7fc}
 .overview-table td:first-child{text-align:center;font-weight:700;color:#02227a;width:40px}
 
 /* FOOTER */
-.page-footer{text-align:center;padding:24px 0 32px;margin-top:8px;border-top:1px solid #dddddd}
-.footer-btn-group{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
-.btn-pdf{background:#5294ff;color:#fff;border:none;border-radius:6px;padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;min-height:48px}
-.btn-pdf:hover{background:#3a7ae0}
-.btn-pdf-all{background:#02227a}
-.btn-pdf-all:hover{background:#0d3494}
 
 /* DETAIL CAREER */
 .detail-company-header{background:#f0f4fc;border-radius:8px;padding:12px 16px;margin:24px 0 12px;border-left:4px solid #5294ff}
@@ -131,8 +125,7 @@ tr:nth-child(even) td{background:#f5f7fc}
 @media print{
   @page{size:A4;margin:12mm 15mm}
   nav{display:none!important}
-  .page-footer{display:none!important}
-  .sidebar{display:none!important}
+    .sidebar{display:none!important}
   body{background:#fff!important;font-size:11px;orphans:4;widows:4}
   .page-layout{display:block!important}
   .container{padding:0!important;max-width:100%!important;width:100%!important}
@@ -202,9 +195,7 @@ tr:nth-child(even) td{background:#f5f7fc}
   .project-title{font-size:14px}
   .project-body{padding:16px 14px}
   .career-card{padding:12px 12px}
-  .footer-btn-group{flex-direction:column;align-items:center}
-  .btn-pdf{width:100%;max-width:300px}
-}
+    }
 @media (max-width:380px){
   .nav-brand{font-size:12px}
   .nav-tab{font-size:12px;padding:9px 0}
@@ -991,13 +982,6 @@ tr:nth-child(even) td{background:#f5f7fc}
 </div><!-- /tab-portfolio -->
 
 <!-- FOOTER -->
-<div class="page-footer">
-  <div class="footer-btn-group">
-    <button class="btn-pdf" onclick="printTab('resume')">이력서 PDF 저장</button>
-    <button class="btn-pdf" onclick="printTab('career')">경력기술서 PDF 저장</button>
-    <button class="btn-pdf" onclick="printTab('portfolio')">포트폴리오 PDF 저장</button>
-    <button class="btn-pdf btn-pdf-all" onclick="printAll()">전체 PDF 저장</button>
-  </div>
 </div>
 
 </div><!-- /container -->
@@ -1013,23 +997,7 @@ function switchTab(tab, btn) {
   var sideNav = document.getElementById('side-nav-' + tab);
   if (sideNav) sideNav.classList.add('visible');
 }
-function printTab(tab) {
-  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-  document.getElementById('tab-' + tab).classList.add('active');
-  document.body.setAttribute('data-print-tab', tab);
-  window.print();
-  document.body.removeAttribute('data-print-tab');
-  // 원래 탭 복원
-  document.querySelectorAll('.nav-tab').forEach(btn => {
-    if (btn.textContent.trim() === (tab === 'resume' ? '이력서' : tab === 'career' ? '경력기술서' : '포트폴리오')) {
-      btn.classList.add('active');
-      document.getElementById('tab-' + tab).classList.add('active');
-    }
   });
-}
-function printAll() {
-  document.body.removeAttribute('data-print-tab');
-  window.print();
 }
 
 // 사이드바 스크롤 연동
